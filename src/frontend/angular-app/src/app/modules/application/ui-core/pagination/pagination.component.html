@@ -1,0 +1,9 @@
+<ngb-pagination [(page)]="page" [(collectionSize)]="totalItens" [pageSize]="pageSize" [rotate]="true"
+  (pageChange)="loadPage($event)">
+  <ng-template ngbPaginationFirst>First</ng-template>
+  <ng-template ngbPaginationLast>Last</ng-template>
+  <ng-template ngbPaginationPrevious>Prev</ng-template>
+  <ng-template ngbPaginationNext>Next</ng-template>
+  <ng-template ngbPaginationEllipsis>...</ng-template>
+  <ng-template ngbPaginationNumber let-page>{{ page }}</ng-template>
+</ngb-pagination>

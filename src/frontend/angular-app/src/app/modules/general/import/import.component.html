@@ -1,0 +1,42 @@
+<body class="sb-nav-fixed">
+  <app-header></app-header>
+  <div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+      <app-menu></app-menu>
+    </div>
+    <div id="layoutSidenav_content">
+      <main>
+        <div class="container-fluid">
+          <alert></alert>
+          <h1 class="breadcrumb-title mt-4">Import File</h1>
+          <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Import File</li>
+          </ol>
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="custom-file" id="customFile" lang="en">
+                <p class="mb-0">
+                  <input type="file" #fileUI value="upload" class="custom-file-input" (change)="handleFileInput($event.target.files)"
+                    id="exampleInputFile" aria-describedby="fileHelp">
+                  <label class="custom-file-label" for="exampleInputFile">
+                    {{filePath}}
+                  </label>
+                </p>
+                <br/>
+                <p class="mb-0">
+                  <button class="btn btn-primary" (click)="upload()">Update</button>
+                </p>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+      </main>
+      <app-footer></app-footer>
+    </div>
+  </div>
+  <script src="src/assets/js/scripts.js"></script>
+</body>

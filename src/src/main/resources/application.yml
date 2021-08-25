@@ -1,0 +1,54 @@
+server:
+  port: 8304
+apedrina:
+  app:
+    jwtExpirationMs: 86400000
+    jwtSecret: apedrinaSecretKey
+jasypt:
+  encryptor:
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+    password: apedrinaSecretKey
+    algorithm: PBEWithMD5AndDES
+
+management:
+  endpoint:
+    beans:
+      enabled: true
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      driver-class-name: org.mariadb.jdbc.Driver
+    password: root
+    url: jdbc:mariadb://localhost:3306/testdb?serverTimezone=Europe/Amsterdam
+    username: root
+  flyway:
+    clean-on-validation-error: true
+    baseline-on-migrate: true
+    #baselineOnMigrate: 'true'
+    enabled: true
+    locations: classpath:/db/migration
+    password: root
+    schemas: testdb
+    url: jdbc:mariadb://localhost:3306/testdb?serverTimezone=Europe/Amsterdam
+    user: root
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
