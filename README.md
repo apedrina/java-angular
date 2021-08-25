@@ -10,11 +10,11 @@
 
 ## Getting Started
 
-* got to /frontend/
-* npm i
-* go to / (the root directory)
-* `mvn clean install`
-* `java -jar target\java-angular-2.2.2.RELEASE.jar`
+* go to `/frontend/`
+* run `npm i`
+* go to `/ (the root directory)`
+* run `mvn clean install`
+* run `java -jar target\java-angular-2.2.2.RELEASE.jar`
 
 > browser: [http://localhost:8304](http://localhost:8304) 
 
