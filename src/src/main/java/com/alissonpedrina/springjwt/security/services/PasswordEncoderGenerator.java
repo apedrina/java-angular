@@ -8,11 +8,11 @@ public class PasswordEncoderGenerator {
         int i = 0;
         while (i < 10) {
             String password = "root";
-            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-            String hashedPassword = passwordEncoder.encode(password);
-
+            var passwordEncoder = new BCryptPasswordEncoder();
+            var hashedPassword = passwordEncoder.encode(password);
             System.out.println(hashedPassword);
             i++;
+
         }
 
     }

@@ -48,13 +48,11 @@ public class AuthController {
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
-        Authentication authentication = authenticationManager.authenticate(
+        var authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = jwtUtils.generateJwtToken(authentication);
-
-        MyUserPrincipal userDetails = (MyUserPrincipal) authentication.getPrincipal();
-
+        var jwt = jwtUtils.generateJwtToken(authentication);
+        var userDetails = (MyUserPrincipal) authentication.getPrincipal();
         return ResponseEntity.ok(new JwtResponse(jwt,
                 2l,
                 userDetails.getUsername(),
@@ -75,7 +73,7 @@ public class AuthController {
                     .badRequest()
                     .body(new MessageResponse("Error: Email is already in use!"));
         }
-        UserEntity user = new UserEntity(signUpRequest.getUsername(),
+        var user = new UserEntity(signUpRequest.getUsername(),
                 signUpRequest.getPassword(),
                 signUpRequest.getEmail(),
                 new HashSet<RoleEntity>()
@@ -83,26 +81,26 @@ public class AuthController {
         var strRoles = signUpRequest.getRole();
         var roles = new HashSet<RoleEntity>();
         if (strRoles == null) {
-            RoleEntity userRole = roleRepository.findByName("")
+            var userRole = roleRepository.findByName("")
                     .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
             roles.add(userRole);
         } else {
             strRoles.forEach(role -> {
                 switch (role) {
                     case "admin":
-                        RoleEntity adminRole = roleRepository.findByName("ROLE_ADMIN")
+                        var adminRole = roleRepository.findByName("ROLE_ADMIN")
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(adminRole);
 
                         break;
                     case "user":
-                        RoleEntity modRole = roleRepository.findByName("ROLE_USER")
+                        var modRole = roleRepository.findByName("ROLE_USER")
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(modRole);
 
                         break;
                     default:
-                        RoleEntity userRole = roleRepository.findByName("ROLE_NEW_USER")
+                        var userRole = roleRepository.findByName("ROLE_NEW_USER")
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(userRole);
                 }
