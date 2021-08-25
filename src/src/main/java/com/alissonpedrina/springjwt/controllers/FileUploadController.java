@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @Slf4j
 @Controller
 @RequestMapping("/api/upload")
