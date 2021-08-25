@@ -1,43 +1,27 @@
-# Angular 11 Example Bootstrap
+# Angular 11 & Java Example
 
-> An Angular application wrapped in a Java Jar Application
+> An Angular application wrapped in a Java Jar Application using: SpringSecurity and JWT.
 
-## Quick start
+## Requirements
 
-```bash
-# select a repo
-# download the example or clone the repo from github
-git clone https://github.com/apedrina/java-angular.git
-
-# change directory
-cd java-angular\src
-
-# install the repo with npm
-npm install
-
-# start the server
-npm start
-
-```
-in your browser go to [http://localhost:4200](http://localhost:4200) 
+- NodeJs
+- MariaDB with a database named: testdb 
+- Jdk 1.8 +
 
 ## Getting Started
 
-### Installation
-* `npm install` (installing dependencies)
-* `npm outdated` (verifying dependencies)
+* got to /frontend/
+* npm i
+* go to / (the root directory)
+* `mvn clean install`
+* `java -jar target\java-angular-2.2.2.RELEASE.jar`
 
-### Developpement
-* `npm run start`
-* in your browser [http://localhost:4200](http://localhost:4200) 
+> browser: [http://localhost:8304](http://localhost:8304) 
 
-### Production 
-* `npm run build`
+login:
 
-## Tests
-* `npm run lint`
-* `npm run test`
-* `npm run e2e`
+* username: `test`
+* password: `test123`
 
 ### Author
-* Author  : apedrina
+* Author  : pedrina.alisson@gmail.com
