@@ -6,7 +6,7 @@
 
 - NodeJs
 - MariaDB with a database named: testdb 
-- Jdk 1.8 +
+- Jdk 11 +
 
 ## Getting Started
 
